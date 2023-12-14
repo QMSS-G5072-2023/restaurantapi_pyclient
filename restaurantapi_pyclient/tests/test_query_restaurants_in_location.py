@@ -4,7 +4,10 @@
 # In[ ]:
 
 
-def test_query_restaurants_in_location(api_key, location_id, language, currency):
+import os
+
+def test_query_restaurants_in_location(location_id, language, currency):
+    api_key = os.getenv('RES_KEY')
     restaurants_in_location = query_restaurants_in_location(api_key, location_id, language, currency)
 
     if restaurants_in_location and 'results' in restaurants_in_location:
@@ -25,12 +28,11 @@ def test_query_restaurants_in_location(api_key, location_id, language, currency)
             print("No restaurant data found.")
     else:
         print("Failed to fetch restaurants in the specified location.")
-    
+
 # Test the query_restaurants_in_location function
-api_key = '49f4da63b6msh82906fb62626f36p1967c4jsn7cf7d8a1f72c'
 location_id = '45963'
 language = "en_US"
 currency = "USD"
 
-test_query_restaurants_in_location(api_key, location_id, language, currency)
+test_query_restaurants_in_location(location_id, language, currency)
 

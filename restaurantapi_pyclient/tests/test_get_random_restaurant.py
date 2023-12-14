@@ -4,8 +4,14 @@
 # In[ ]:
 
 
+import os
+
 def test_get_random_restaurant():
-    api_key = '49f4da63b6msh82906fb62626f36p1967c4jsn7cf7d8a1f72c'
+    api_key = os.environ.get('RES_API')
+    if not api_key:
+        print("API key not found in environment variables.")
+        return
+    
     location_id = '45963'
     language = "en_US"
     currency = "USD"
