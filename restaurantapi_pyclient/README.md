@@ -1,7 +1,7 @@
 # restaurantapi_pyclient
 
 This is a python package that can help users select restaurants given location, cuisine, price range, ratings, etc. When travelling to a new places. People usually don't know what to eat and spend a lot of time to think about which restaurant to go to. This python package has various functions that can help people make better decisions.
-functions. 
+
 
 ## Installation
 
@@ -12,32 +12,32 @@ $ pip install restaurantapi_pyclient
 ## Functions
 `query_restaurants_in_location`
 
-Description: This function queries restaurants in a specific location. Imagine, when you travels to a new place and didn't know what to eat, you can simply use this function to help you. By simply typing your location id, the currency you want to pay, and the language you speak, the function will generates a list of restaurants near you. The list contains the name of the restaurant, its price level, ratings, description and a photo url of it. 
+This function queries restaurants in a specific location. Imagine, when you travels to a new place and didn't know what to eat, you can simply use this function to help you. By simply typing your location id, the currency you want to pay, and the language you speak, the function will generates a list of restaurants near you. The list contains the name of the restaurant, its price level, ratings, description and a photo url of it. 
 
 
 `sort_restaurants_by_ratings`
 
-Description: This function is build upon the first function. After displaying the restaurants nearby, you can also redesign the list of the restaurants. This function helps you rank the restaurant nearby from highest ratings to lowest.
+This function is build upon the first function. After displaying the restaurants nearby, you can also redesign the list of the restaurants. This function helps you rank the restaurant nearby from highest ratings to lowest.
 
 
 `get_specific_restaurant_details`
 
-Description: Find something attracts you in the above list and want to know more? This function allows you to pick a specific restaurant and provides much more details for that restaurants. The output contains a comprehensive list of all reviews about the specific restaurant as well as a histogram of its rating scores.
+Find something attracts you in the above list and want to know more? This function allows you to pick a specific restaurant and provides much more details for that restaurants. The output contains a comprehensive list of all reviews about the specific restaurant as well as a histogram of its rating scores.
 
 
 `get_cuisine_for_restaurant`
 
-Description: This function is parallel to the above function that can give you a detailed list of how many cuisines that your selected restaurant has.
+This function is parallel to the above function that can give you a detailed list of how many cuisines that your selected restaurant has.
 
 
 `search_restaurants_by_cuisine`
 
-Description: Interested in one specific cuisine? This function can help you re-filter the list of restaurants nearby. By selecting a specific cuisine, the output will contains a list of restaurants in your selected cuisine.
+Interested in one specific cuisine? This function can help you re-filter the list of restaurants nearby. By selecting a specific cuisine, the output will contains a list of restaurants in your selected cuisine.
 
 
 `get_random_restaurant`
 
-Description: Still cannot decide what to eat? No worries! This function will help you randomly select a restaurant near you. You only need to type in your location id, the currency you want to pay and the language you speak. Then a randomly selected restaurant will be generated in the output. Enjoy!
+Still cannot decide what to eat? No worries! This function will help you randomly select a restaurant near you. You only need to type in your location id, the currency you want to pay and the language you speak. Then a randomly selected restaurant will be generated in the output. Enjoy!
 
 ## Usage Example
 
@@ -73,7 +73,6 @@ Then users can retrieve specific details about a restaurant, including reviews a
 ```python
 from restaurantapi_pyclient import get_specific_restaurant_details
 
-# Your API key, restaurant name, location ID, language, and currency
 api_key = "YOUR_API_KEY"
 restaurant_name = "RESTAURANT_NAME"
 location_id = "LOCATION_ID"
