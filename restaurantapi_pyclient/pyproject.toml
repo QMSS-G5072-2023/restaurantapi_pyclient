@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "restaurantapi_pyclient"
+version = "0.1.0"
+description = "This is a python package that can help users select restaurants given location, cuisine, price range, ratings, etc."
+authors = ["Annika Xu"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
