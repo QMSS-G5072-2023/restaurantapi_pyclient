@@ -4,6 +4,10 @@
 # In[ ]:
 
 
+from restaurantapi_pyclient import get_cuisine_for_restaurant
+import requests
+import matplotlib.pyplot as plt
+import random
 import os
 
 def test_get_cuisine_for_restaurant():

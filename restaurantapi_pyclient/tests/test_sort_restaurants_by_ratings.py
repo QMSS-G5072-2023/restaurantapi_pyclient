@@ -4,6 +4,10 @@
 # In[ ]:
 
 
+from restaurantapi_pyclient import sort_restaurants_by_ratings
+import requests
+import matplotlib.pyplot as plt
+import random
 import os
 
 def test_sort_restaurants_by_ratings(location_id, language, currency):

@@ -7,9 +7,11 @@
 import requests
 import matplotlib.pyplot as plt
 import random
+import os
 
 ##### first function
-##### this function can list all the restaurants in specific location
+##### Imagine one person travels to a new place and didn't know what to eat
+##### This function can list all the restaurants in specific location
 def query_restaurants_in_location(api_key, location_id, language, currency):
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
@@ -38,7 +40,8 @@ def query_restaurants_in_location(api_key, location_id, language, currency):
 
 
 ##### second function
-##### this function can sort restaurants from high ratings to low ratings in a place
+##### After seeing the list of restaurants in one place, the person may want to see the rank of ratings
+##### This function can sort restaurants from high ratings to low ratings in a place
 def sort_restaurants_by_ratings(api_key, location_id, language, currency):
     # Use the first function to retrieve restaurants in the specified location
     restaurants_in_location = query_restaurants_in_location(api_key, location_id, language, currency)
@@ -68,7 +71,8 @@ def sort_restaurants_by_ratings(api_key, location_id, language, currency):
 
 
 ##### third function
-##### this function can get a detailed info about a restaurant
+##### After seeing the rank, the person might want to check a specific restaurant on the list
+##### This function can get a detailed info about a restaurant
 def get_specific_restaurant_details(api_key, restaurant_name, location_id, language, currency):
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
@@ -158,7 +162,8 @@ def get_reviews_for_location(api_key, location_id, language, currency):
 
 
 ##### Fourth Function
-##### this function can get the cuisine type of selected restaurant
+##### Then the user might be interested to see the cuisine of the selected restaurant
+##### So this function can get the cuisine type of selected restaurant
 def get_cuisine_for_restaurant(api_key, restaurant_name, location_id, language, currency):
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
@@ -196,7 +201,8 @@ def get_cuisine_for_restaurant(api_key, restaurant_name, location_id, language, 
 
 
 ##### fifth function
-##### unlike previous function, this function can list restaurants in a specific cuisine at one location
+##### After checking specific cuisine, the person wants to see all the restaurants nearby in this cuisine
+##### Unlike previous function, this function can list restaurants in a specific cuisine at one location
 def search_restaurants_by_cuisine(api_key, cuisine_name, location_id, language, currency):
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
@@ -237,7 +243,8 @@ def search_restaurants_by_cuisine(api_key, cuisine_name, location_id, language, 
 
 
 ##### sixth function
-##### this question can generate a random restaurant in assigned location
+##### After seeing all these options, the person still cannot decide which restaurant to go to
+##### So this function can generate a random restaurant in assigned location
 def get_random_restaurant(api_key, location_id, language, currency):
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
