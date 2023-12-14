@@ -9,10 +9,26 @@ import matplotlib.pyplot as plt
 import random
 import os
 
-##### first function
-##### Imagine one person travels to a new place and didn't know what to eat
-##### This function can list all the restaurants in specific location
 def query_restaurants_in_location(api_key, location_id, language, currency):
+    """
+    Queries restaurants in a specific location using the Restaurant API service.
+
+    Args:
+    - api_key (str): The API key.
+    - location_id (str): The identifier for the location to search nearby restaurants.
+    - language (str): The language in which the restaurant information will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Returns:
+    - dict or None: A dictionary containing restaurant information if successful, else None.
+
+    This function makes a request to the Restaurant API to retrieve information about
+    restaurants in a specified location. Imagine one person travels to a new place and didn't 
+    know what to eat. This function can list all the restaurants in specific location.
+    It uses the provided API key, location ID, language,and currency to form the request 
+    and returns the response containing restaurant data.
+    """
+
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
         "location_id": location_id,
@@ -39,10 +55,26 @@ def query_restaurants_in_location(api_key, location_id, language, currency):
 # In[3]:
 
 
-##### second function
-##### After seeing the list of restaurants in one place, the person may want to see the rank of ratings
-##### This function can sort restaurants from high ratings to low ratings in a place
 def sort_restaurants_by_ratings(api_key, location_id, language, currency):
+    """
+    Sorts restaurants in a specified location by their ratings using the Restaurant API service.
+
+    Args:
+    - api_key (str): The API key.
+    - location_id (str): The identifier for the location to search restaurants in.
+    - language (str): The language in which the restaurant information will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Prints:
+    - Sorted list of restaurants by ratings.
+
+    This function uses the 'query_restaurants_in_location' function to retrieve restaurants
+    in the specified location. It then sorts these restaurants based on their ratings in
+    descending order and prints the restaurant names, ratings, and price ranges if available.
+    If no restaurant data is found or if there's a failure in fetching the restaurants, it
+    displays appropriate messages.
+    """
+    
     # Use the first function to retrieve restaurants in the specified location
     restaurants_in_location = query_restaurants_in_location(api_key, location_id, language, currency)
 
@@ -70,10 +102,28 @@ def sort_restaurants_by_ratings(api_key, location_id, language, currency):
 # In[20]:
 
 
-##### third function
-##### After seeing the rank, the person might want to check a specific restaurant on the list
-##### This function can get a detailed info about a restaurant
 def get_specific_restaurant_details(api_key, restaurant_name, location_id, language, currency):
+    
+    """
+    Retrieves details about a specific restaurant including its reviews and displays a histogram of rating scores.
+
+    Args:
+    - api_key (str): The API key.
+    - restaurant_name (str): The name of the restaurant to retrieve details for.
+    - location_id (str): The identifier for the location to search restaurants in.
+    - language (str): The language in which the restaurant information will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Prints:
+    - Details of the specific restaurant.
+    - Reviews for the restaurant.
+    - Histogram of rating scores.
+
+    This function fetches restaurant details using the Restaurant API based on the provided
+    restaurant name, location ID, language, and currency. It displays specific details about the
+    restaurant, retrieves its reviews, prints all of them, and visualizes a histogram of score ratings.
+    """
+    
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
         "location_id": location_id,
@@ -128,9 +178,24 @@ def get_specific_restaurant_details(api_key, restaurant_name, location_id, langu
     except requests.exceptions.RequestException as e:
         print("Error:", e)
         
- #### third-sub function
- #### this function get restaurants' reviews
 def get_reviews_for_location(api_key, location_id, language, currency):
+    """
+    Retrieves reviews for a specific location or restaurant.
+
+    Args:
+    - api_key (str): The API key.
+    - location_id (str): The identifier for the location or restaurant to retrieve reviews for.
+    - language (str): The language in which the reviews will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Returns:
+    - dict or None: A dictionary containing review information if successful, else None.
+
+    This function makes a request to the Restaurant API service to retrieve reviews for a specified
+    location or restaurant based on the provided location ID, language, and currency. It returns
+    a dictionary containing review data if the request is successful, otherwise returns None.
+    """
+    
     url = "https://restaurants222.p.rapidapi.com/reviews"
 
     payload = {
@@ -161,10 +226,27 @@ def get_reviews_for_location(api_key, location_id, language, currency):
 # In[7]:
 
 
-##### Fourth Function
-##### Then the user might be interested to see the cuisine of the selected restaurant
-##### So this function can get the cuisine type of selected restaurant
 def get_cuisine_for_restaurant(api_key, restaurant_name, location_id, language, currency):
+    
+    """
+    Retrieves the cuisine type of a selected restaurant.
+
+    Args:
+    - api_key (str): The API key.
+    - restaurant_name (str): The name of the restaurant to retrieve cuisine details for.
+    - location_id (str): The identifier for the location to search restaurants in.
+    - language (str): The language in which the cuisine information will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Returns:
+    - list or None: A list containing cuisine types of the restaurant if found, else None.
+
+    This function utilizes the first 'query_restaurants_in_location' function to fetch details about
+    restaurants in the specified location. It then extracts the cuisine type for the given
+    restaurant name using the obtained data and returns a list of cuisine types if available.
+    If no cuisine details are found or if there's an error in the process, it returns None.
+    """
+    
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
         "location_id": location_id,
@@ -200,10 +282,27 @@ def get_cuisine_for_restaurant(api_key, restaurant_name, location_id, language, 
 # In[9]:
 
 
-##### fifth function
-##### After checking specific cuisine, the person wants to see all the restaurants nearby in this cuisine
-##### Unlike previous function, this function can list restaurants in a specific cuisine at one location
 def search_restaurants_by_cuisine(api_key, cuisine_name, location_id, language, currency):
+    
+    """
+    Lists restaurants in a specific cuisine at a given location.
+
+    Args:
+    - api_key (str): The API key.
+    - cuisine_name (str): The name of the cuisine to search for in restaurants.
+    - location_id (str): The identifier for the location to search restaurants in.
+    - language (str): The language in which the restaurant information will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Returns:
+    - list or None: A list containing restaurant details with the specified cuisine if found, else None.
+
+    This function queries the Restaurant API service to fetch information about restaurants in the specified
+    location. It filters and returns a list of restaurants that serve the provided cuisine name.
+    If no restaurants are found for the given cuisine or if an error occurs during the process,
+    it returns None.
+    """
+    
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
         "location_id": location_id,
@@ -246,6 +345,25 @@ def search_restaurants_by_cuisine(api_key, cuisine_name, location_id, language, 
 ##### After seeing all these options, the person still cannot decide which restaurant to go to
 ##### So this function can generate a random restaurant in assigned location
 def get_random_restaurant(api_key, location_id, language, currency):
+    
+    """
+    Generates a random restaurant within a specified location.
+
+    Args:
+    - api_key (str): The API key.
+    - location_id (str): The identifier for the location to search restaurants in.
+    - language (str): The language in which the restaurant information will be provided.
+    - currency (str): The currency in which prices will be displayed.
+
+    Returns:
+    - dict or None: A dictionary containing details of a randomly selected restaurant if found, else None.
+
+    This function queries the Restaurant API to retrieve information about restaurants in the specified
+    location. It randomly selects and returns details of a restaurant from the available list.
+    This function is to help users select what to eat if he/she cannot decide. If no restaurants are found 
+    in the specified location or if an error occurs during the process, it returns None.
+    """
+    
     url = "https://restaurants222.p.rapidapi.com/search"
     payload = {
         "location_id": location_id,
