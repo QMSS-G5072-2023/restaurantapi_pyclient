@@ -130,6 +130,22 @@ random_restaurant = get_random_restaurant(api_key, location_id, language, curren
 print(random_restaurant)  
 ```
 
+Here is an example output:
+```python 
+Can't decide what to eat? Let me decide this for you!
+You're going to ...
+Garrett Popcorn Shops!
+
+Here are more details of this restaurant:
+Rating: 4.5
+Price Level: $
+Address: 3633 Las Vegas Blvd S Suite 50, Las Vegas, NV 89109-4322
+Phone: +1 888-476-7267
+Website: http://www.garrettpopcorn.com
+
+Enjoy your time there!
+```
+
 
 ## Contributing
 
