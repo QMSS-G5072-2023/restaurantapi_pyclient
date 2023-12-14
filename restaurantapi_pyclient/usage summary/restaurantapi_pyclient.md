@@ -1,5 +1,7 @@
 # Final Project - Annika Xu
 
+This is a python package that can help users select restaurants given location, cuisine, price range, ratings, etc. When travelling to a new places. People usually don't know what to eat and spend a lot of time to think about which restaurant to go to. This python package has various functions that can help people make better decisions.
+
 ## Using My Package
 
 - Package Repository: https://github.com/QMSS-G5072-2023/restaurantapi_pyclient
@@ -35,6 +37,7 @@ from restaurantapi_pyclient import restaurantapi_pyclient
 
 ## Let's check my functions ...
 ## For example, search restaurants near las vegas, location_id is 45963
+'query_restaurants_in_location' queries restaurants in a specific location. Imagine, when you travels to a new place and didn't know what to eat, you can simply use this function to help you. By simply typing your location id, the currency you want to pay, and the language you speak, the function will generates a list of restaurants near you. The list contains the name of the restaurant, its price level, ratings, description and a photo url of it.
 
 
 ```python
@@ -173,7 +176,8 @@ result = query_restaurants_in_location(api_key, location_id, language, currency)
     -------------
 
 
-## Then if I want to sort nearby restaurants by ratings.
+## Then if you want to sort nearby restaurants by ratings.
+'sort_restaurants_by_ratings' is build upon the first function. After displaying the restaurants nearby, you can also redesign the list of the restaurants. This function helps you rank the restaurant nearby from highest ratings to lowest.
 
 
 ```python
@@ -272,7 +276,8 @@ result = sort_restaurants_by_ratings(api_key, location_id, language, currency)
     -------------
 
 
-## Then if I want to specifically check the details of Zeppola Cafe from the list
+## Then if you want to specifically check the details of Zeppola Cafe from the list
+'get_specific_restaurant_details' allows you to pick a specific restaurant and provides much more details for that restaurants. The output contains a comprehensive list of all reviews about the specific restaurant as well as a histogram of its rating scores.
 
 
 ```python
@@ -371,6 +376,7 @@ result2 = get_specific_restaurant_details(api_key, restaurant_name, location_id,
 
 
 ## Also get all the cuisine type of Zeppola Cafe
+'get_cuisine_for_restaurant' is parallel to the above function that can give you a detailed list of how many cuisines that your selected restaurant has.
 
 
 ```python
@@ -389,6 +395,7 @@ cuisine_info = get_cuisine_for_restaurant(api_key, restaurant_name, location_id,
 
 
 ## Want to search restaurants nearby by cuisine type 'American'
+'search_restaurants_by_cuisine' can help you re-filter the list of restaurants nearby. By selecting a specific cuisine, the output will contains a list of restaurants in your selected cuisine.
 
 
 ```python
@@ -446,7 +453,8 @@ matching_restaurants = search_restaurants_by_cuisine(api_key, cuisine_name, loca
     -------------
 
 
-## Still can't decide, so ask the function to randomly generate a restaurant nearby
+## Still can't decide? Ask the my package to randomly generate a restaurant nearby.
+'get_random_restaurant' will help you randomly select a restaurant near you. You only need to type in your location id, the currency you want to pay and the language you speak. Then a randomly selected restaurant will be generated in the output. Enjoy!
 
 
 ```python
